@@ -1,0 +1,176 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background: #eee;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+nav {
+  background-color: #f5ba13;
+  margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  color: #fff;
+  font-family: "McLaren", cursive;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  position: relative;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: #f5ba13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: #fff;
+}
+.form {
+  margin: 50px auto 20px;
+  text-align: center;
+}
+.form input {
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 0.7rem;
+  border-bottom-right-radius: 15px 3px;
+  border-bottom-left-radius: 3px 15px;
+  border: solid 3px transparent;
+  border-bottom: dashed 3px #fdcb6e;
+  font-family: "Architects Daughter", cursive;
+  font-size: 1rem;
+  color: hsla(260, 2%, 25%, 0.7);
+  width: 30%;
+  text-align: center;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font-family: "Architects Daughter", cursive;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-radius: 5px;
+}
+button span {
+  background: #f1f5f8;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid hsl(198, 1%, 29%);
+}
+
+.warning {
+  color: black;
+  font-family: "McLaren", cursive;
+  text-decoration: none;
+  font-size: 1.2rem;
+  background-color: bisque;
+  padding: 50px;
+}
+.closebtn {
+  background-color: bisque;
+  cursor: pointer;
+}
+
+.closebtn img {
+  width: 24px;
+  height: 24px;
+  margin-left: 80px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.img {
+  margin-top: 100px;
+}
+
+.subtitle {
+  font-size: 40px;
+  font-weight: 200;
+  margin: 100px 0 10px 0;
+  text-decoration: none;
+}
+.subtitle:hover {
+  text-decoration: underline;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  margin: 10px 25px 10px 25px;
+}
+
+.card img {
+  width: 250px;
+  height: 250px;
+}
+.card h3 {
+  width: 250px;
+  word-wrap: break-word;
+}
+.page-container {
+  position: relative;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: calc(100vh - 34px);
+}
+
+form {
+  position: relative;
+  width: 50%;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+form textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.5em;
+  font-family: inherit;
+  resize: none;
+}
+form button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: #f5ba13;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
