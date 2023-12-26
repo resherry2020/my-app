@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function InputArea() {
   const [content, setContent] = useState("");
@@ -10,7 +11,9 @@ function InputArea() {
     console.log(content);
   }
 
-  function checkIng(event) {
+  async function checkIng(event) {
+    event.preventDefault();
+
     const unsafeInglist = [
       "oxybenzone",
       "octinoxate",
@@ -30,7 +33,15 @@ function InputArea() {
     }
 
     setOutput(unsafeIngredients);
-    event.preventDefault();
+    // Send user input to the server
+    try {
+      await axios.post("http://localhost:3001/storeInput", {
+        userInput: content,
+      });
+      console.log("User input stored successfully");
+    } catch (error) {
+      console.error("Error storing user input:", error);
+    }
   }
 
   return (
