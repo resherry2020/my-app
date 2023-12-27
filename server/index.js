@@ -16,16 +16,13 @@ app.get("/", (req, res) => {
 
 //get all products
 app.post("/products", async (req, res) => {
+  console.log("get all products");
   try {
-    const { userInput } = req.body;
-    const result = await pool.query(
-      "INSERT INTO user_inputs (content) VALUES ($1) RETURNING *",
-      [userInput]
-    );
-    res.status(201).json(result.rows[0]);
+    const allProducts = await pool.query("SELECT * FROM products");
+    res.json(allProducts.rows);
+    console.log(allProducts.rows);
   } catch (error) {
-    console.error("Error storing user input:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error(error.message);
   }
 });
 
