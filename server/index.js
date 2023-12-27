@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 //get all products
-app.post("/products", async (req, res) => {
+app.get("/products", async (req, res) => {
   console.log("get all products");
   try {
     const allProducts = await pool.query("SELECT * FROM products");

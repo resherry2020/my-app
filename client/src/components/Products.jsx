@@ -8,7 +8,7 @@ function Products() {
   //get all items
   const getList = async () => {
     try {
-      const response = await fetch("/products", {
+      const response = await fetch("http://localhost:3001/products", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
