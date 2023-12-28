@@ -1,10 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import Img from "./Img";
 import Subtitle from "./Subtitle";
 import Cards from "./Cards";
 import { Link } from "react-router-dom";
-import { IngData, ProData } from "./Database";
+import { IngData } from "./Database";
+import InputName from "./InputName";
 
 function Home() {
   const [Prolist, setProlist] = useState([]);
@@ -35,12 +36,13 @@ function Home() {
   }, []);
 
   return (
-    <Fragment className="page-container">
+    <div className="page-container">
       <Img
         link={"https://picsum.photos/500/300"}
         alt={"EcoSunscreen-headimg"}
       />
-      <Search item={ProData} />
+      <InputName />
+      <Search item={Prolist} />
 
       <Link to="/ingredients">
         <Subtitle text={"Ingredients"} />
@@ -51,7 +53,7 @@ function Home() {
         <Subtitle text={"Products"} />
       </Link>
       <Cards cardData={Prolist} />
-    </Fragment>
+    </div>
   );
 }
 

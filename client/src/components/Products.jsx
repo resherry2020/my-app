@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-//import Item from "./Item";
-//import { ProData } from "./Database";
+import Item from "./Item";
 
 function Products() {
   const [list, setList] = useState([]);
@@ -27,18 +25,15 @@ function Products() {
   return (
     <div>
       <h2>Products</h2>
-      {list.map((item) => (
-        <p key={item.id}>{item.title}</p>
-      ))}
 
-      {/* {ProData.map((item, index) => (
+      {list.map((item, index) => (
         <Item
           key={index}
           title={item.title}
           link={item.link}
           alt={item.title}
         />
-      ))}*/}
+      ))}
     </div>
   );
 }
