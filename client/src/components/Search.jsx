@@ -27,27 +27,25 @@ function Search(props) {
     setSearchText("");
   };
   return (
-    <>
-      <div className="form ">
-        <span>
-          <input
-            type="text"
-            onChange={(event) => setSearchText(event.target.value)}
-            value={searchText}
-            placeholder="Type to search for products"
-          />
-        </span>
-        <button onClick={clickButton}>
-          <span>Search</span>
-        </button>
-      </div>
+    <div class="hstack gap-3 container p-5">
+      <input
+        class="form-control me-auto"
+        onChange={(event) => setSearchText(event.target.value)}
+        value={searchText}
+        type="text"
+        placeholder="Type to search for products..."
+        aria-label="Type to search for products..."
+      />
+      <button type="button" class="btn btn-secondary" onClick={clickButton}>
+        Search
+      </button>
       {isClick && (
         <ItemList
           items={foundItems}
           emptyHeading={<Warning clearSearch={clearSearch} />}
         />
       )}
-    </>
+    </div>
   );
 }
 

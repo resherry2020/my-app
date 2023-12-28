@@ -3,8 +3,26 @@ import React from "react";
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer>
-      <p>Copyright ⓒ {year}</p>
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="/" class="nav-link px-2 text-body-secondary">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/products" class="nav-link px-2 text-body-secondary">
+            Products
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/about" class="nav-link px-2 text-body-secondary">
+            About Us
+          </a>
+        </li>
+      </ul>
+      <p class="text-center text-body-secondary">© {year} EcoSunscreen </p>
     </footer>
   );
 }

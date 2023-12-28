@@ -34,7 +34,9 @@ app.post("/products", async (req, res) => {
 app.get("/products", async (req, res) => {
   console.log("get all products");
   try {
-    const allProducts = await pool.query("SELECT * FROM products");
+    const allProducts = await pool.query(
+      "SELECT * FROM products WHERE status='approved'"
+    );
     res.json(allProducts.rows);
     console.log(allProducts.rows);
   } catch (error) {
@@ -69,6 +71,20 @@ app.put("/products/:id", async (req, res) => {
     );
 
     console.log("product updated");
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+//get all ingredients
+app.get("/ingredients", async (req, res) => {
+  console.log("get all ingredients");
+  try {
+    const allIngredients = await pool.query(
+      "SELECT * FROM ingredients WHERE status='approved'"
+    );
+    res.json(allIngredients.rows);
+    console.log(allIngredients.rows);
   } catch (error) {
     console.error(error.message);
   }

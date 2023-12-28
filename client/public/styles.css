@@ -11,42 +11,13 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-}
-nav {
-  background-color: #f5ba13;
-  margin: auto -16px;
-  padding: 16px 32px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: space-between;
+  min-height: 100vh;
 }
 
-.nav-link {
-  color: #fff;
-  font-family: "McLaren", cursive;
-  text-decoration: none;
-  margin-left: 20px;
+.text-gray {
+  color: #aaa;
 }
 
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-footer {
-  position: relative;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-  background-color: #f5ba13;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer p {
-  color: #fff;
-}
 .form {
   margin: 50px auto 20px;
   text-align: center;
@@ -104,9 +75,6 @@ button span {
   display: flex;
   justify-content: center;
 }
-.img {
-  margin-top: 100px;
-}
 
 .subtitle {
   font-size: 40px;
@@ -117,23 +85,7 @@ button span {
 .subtitle:hover {
   text-decoration: underline;
 }
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.card {
-  margin: 10px 25px 10px 25px;
-}
 
-.card img {
-  width: 250px;
-  height: 250px;
-}
-.card h3 {
-  width: 250px;
-  word-wrap: break-word;
-}
 .page-container {
   position: relative;
   justify-content: center;
@@ -173,4 +125,10 @@ form button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+.fixed-img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
 }
