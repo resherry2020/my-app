@@ -45,9 +45,11 @@ function InputArea() {
   }
 
   return (
-    <div>
-      <form>
-        <textarea
+    <div class="row justify-content-center">
+      <div class="col-md-6 mt-5 ">
+        <form onSubmit={onSubmitForm}>
+          <div class="mb-3">
+            <textarea
           onChange={handleChange}
           name="content"
           placeholder="Copy and Paste the Ingredients of the Sunscreen"
