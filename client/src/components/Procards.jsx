@@ -23,40 +23,35 @@ function Procards() {
   return (
     <div className=" px-4 py-5">
       <h2 class="container pb-2 border-bottom">Products</h2>
-      <div class="row justify-content-center mt-5">
+      <div class="row mt-5">
         {list.slice(0, 4).map((item) => (
-          <div class="col-sm-2 mb-3 mb-sm-0 ">
-            <div class="card">
-              <div
-                className={`card-header ${
-                  item.is_safe ? " text-bg-info" : "text-bg-danger"
-                }`}
-              >
-                {item.is_safe ? " Safe " : "Danger"}
-              </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div class="bg-white rounded shadow-sm">
               <img
                 src={item.link}
-                class="card-img-top fixed-img"
                 alt={item.title}
-              ></img>
-              <div class="card-body">
-                <h5 class="card-title">{item.title}</h5>
-                <span class="card-text">{item.brand}</span>
-              </div>
-              <div class="card-footer">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                      <a class="page-link">SPF: {item.spf}</a>
-                    </li>
-
-                    <li class="page-item">
-                      <a class="page-link" href="/">
-                        more
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                class="img-fluid card-img-top"
+              />
+              <div class="p-4">
+                <h5>
+                  <a href="/" class="text-dark">
+                    {item.title}
+                  </a>
+                </h5>
+                <p class="small text-muted mb-0">{item.brand}</p>
+                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                  <p class="small mb-0">
+                    <i class="fa fa-picture-o mr-2"></i>
+                    <span class="font-weight-bold">{item.spf}</span>
+                  </p>
+                  <div
+                    class={`badge badge-primary px-3 rounded-pill font-weight-normal ${
+                      item.is_safe ? " bg-info" : "bg-danger"
+                    }`}
+                  >
+                    {item.is_safe ? " Safe " : "Danger"}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

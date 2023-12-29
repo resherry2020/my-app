@@ -3,7 +3,8 @@ import Search from "./Search";
 import Carousel from "./Carousel";
 
 import Procards from "./Procards";
-import Ingcards from "./Ingcards";
+
+import Ingpage from "./IngPage";
 
 function Home() {
   const [Prolist, setProlist] = useState([]);
@@ -35,7 +36,7 @@ function Home() {
       <Search item={Prolist} />
 
       <Procards />
-      <Ingcards />
+      <Ingpage />
     </div>
   );
 }
