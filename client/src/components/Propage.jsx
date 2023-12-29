@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Item from "./Item";
 
 function Products() {
   const [list, setList] = useState([]);
@@ -27,7 +26,7 @@ function Products() {
       <h1 class="container pb-2 border-bottom">Products</h1>
       <div class="row justify-content-evenly">
         {list.map((item, index) => (
-          <div class="col mt-5" key={index}>
+          <div class="col-3 mt-5" key={index}>
             <div class="media d-block d-sm-flex text-sm-left">
               <a class="cart-item-thumb mx-auto mr-sm-4" href="/">
                 <img src={item.link} alt={item.title} className="fixed-img" />
@@ -37,7 +36,7 @@ function Products() {
                   <a href="/">{item.title}</a>
                 </h3>
                 <div class="font-size-sm">
-                  <span class="text-muted mr-2">Brand:</span>
+                  <span class="text-muted mr-2"></span>
                   {item.brand}
                 </div>
                 <div class="font-size-sm">
@@ -51,7 +50,7 @@ function Products() {
                   }`}
                 >
                   {" "}
-                  {item.is_safe ? " Safe " : "Unsafe"}
+                  {item.is_safe ? " Safe " : "Danger"}
                 </div>
               </div>
             </div>

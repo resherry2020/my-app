@@ -1,10 +1,9 @@
 import React from "react";
-import Subtitle from "./Subtitle";
 import InputArea from "./InputArea";
 function Check() {
   return (
     <div>
-      <Subtitle text={"Sunscreen Check"} />
+      <h2 class="container pb-2 border-bottom">Sunscreen Ingredients Check</h2>
       <InputArea />
     </div>
   );

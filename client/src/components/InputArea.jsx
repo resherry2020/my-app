@@ -1,14 +1,29 @@
 import React, { useState } from "react";
-import axios from "axios";
+import Outputtable from "./Outputtable";
+import Safealert from "./SafeAlert";
 
 function InputArea() {
-  const [content, setContent] = useState("");
-  const [output, setOutput] = useState("");
+  const [formData, setFormData] = useState({
+    content: "",
+    unsafe_ing: "",
+    isTable: false,
+    isSafe: false,
+    title: "",
+    link: "",
+    spf: "",
+    brand: "",
+  });
 
   function handleChange(event) {
     const newValue = event.target.value.toLowerCase();
-    setContent(newValue);
-    console.log(content);
+    setFormData((prevData) => ({
+      ...prevData,
+      content: newValue,
+    }));
+    // Check if the input is cleared and reload the window
+    if (newValue.trim() === "") {
+      window.location.reload();
+    }
   }
 
   async function checkIng(event) {
@@ -19,48 +34,143 @@ function InputArea() {
       "octinoxate",
       "octocrylene",
       "homosalate",
-      "paba",
       "parabens",
       "triclosan",
+      "para aminobenzoic acid",
+      "methylbenzylidene camphor",
+      "avobenzone",
     ];
 
-    let unsafeIngredients = "";
+    let unsafeIngredients = [];
 
     for (let ingredient of unsafeInglist) {
-      if (content.includes(ingredient)) {
-        unsafeIngredients += ingredient + " is unsafe ";
+      if (formData.content.includes(ingredient)) {
+        unsafeIngredients.push(ingredient);
       }
     }
 
-    setOutput(unsafeIngredients);
-    // Send user input to the server
-    try {
-      await axios.post("http://localhost:3001/storeInput", {
-        userInput: content,
-      });
-      console.log("User input stored successfully");
-    } catch (error) {
-      console.error("Error storing user input:", error);
+    if (unsafeIngredients.length > 0) {
+      setFormData((prevData) => ({
+        ...prevData,
+        isTable: true,
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        isSafe: true,
+      }));
     }
+
+    setFormData((prevData) => ({ ...prevData, unsafe_ing: unsafeIngredients }));
   }
 
+  const onSubmitForm = async (e) => {
+    console.log("onSubmitForm");
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3001/products", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log("Product created successfully");
+        alert(
+          "Thank you for your participation! Product added successfully. After awaiting administrator approval, your submitted product will be displayed on the webpage."
+        );
+        window.location = "/check";
+      } else {
+        console.error("Failed to create product");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
   return (
     <div class="row justify-content-center">
       <div class="col-md-6 mt-5 ">
-        <form onSubmit={onSubmitForm}>
+        <form>
           <div class="mb-3">
             <textarea
-          onChange={handleChange}
-          name="content"
-          placeholder="Copy and Paste the Ingredients of the Sunscreen"
-          rows="10"
-          value={content}
-        />
-        <button onClick={checkIng}>
-          <h2>Check</h2>
-        </button>
-      </form>
-      <p>{output}</p>
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              onChange={handleChange}
+              name="content"
+              placeholder="Copy and Paste the Ingredients of the Sunscreen"
+              rows="10"
+              value={formData.content}
+            ></textarea>
+          </div>
+          <button onClick={checkIng} class="btn btn-warning d-block mx-auto">
+            <h2>Check</h2>
+          </button>
+
+          {formData.isTable && <Outputtable ing={formData.unsafe_ing} />}
+          {formData.isSafe && <Safealert />}
+        </form>
+      </div>
+
+      {formData.isTable | formData.isSafe && (
+        <div class="mb-3 row justify-content-center">
+          <form class="col-md-6 mt-5 " onSubmit={onSubmitForm}>
+            <label for="exampleFormControlInput1" class="form-label">
+              Basic Product Info
+            </label>
+            <div class="input-group">
+              <span class="input-group-text">Product</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Brand"
+                name="brand"
+                value={formData.brand}
+                onChange={handleInputChange}
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                name="title"
+                value={formData.title}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <input
+              type="text"
+              class="form-control mt-2"
+              placeholder="SPF"
+              name="spf"
+              value={formData.spf}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              class="form-control mt-2"
+              placeholder="Product Img Link"
+              name="link"
+              value={formData.link}
+              onChange={handleInputChange}
+            />
+            <button
+              type="submit"
+              className="btn btn-success d-block mx-auto"
+              name="addButton"
+            >
+              Add
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

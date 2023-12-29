@@ -1,32 +1,30 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-function Warning(props) {
-  const [isShowWarning, setIsShowWarning] = useState(true);
-
-  const handleClose = () => {
-    props.clearSearch();
-    setIsShowWarning(false);
-    // You can add additional logic here if needed
-  };
-
+function Warning() {
   return (
-    isShowWarning && (
-      <div className="container warning">
-        <p>
+    <div className="container">
+      <div
+        class="alert alert-warning alert-dismissible fade show p-5"
+        role="alert"
+      >
+        <h4>
+          <strong>Sorry!</strong> <br /> <br />
           It seems we haven't found product results that match your search
           query. :( <br />
-          <br />
-          To view the eco-friendly index of the sunscreen, please
-          <Link to="/check"> click here </Link> to check:)
-        </p>
-        <div>
-          <button className="closebtn" onClick={handleClose}>
-            <img src="/Icon/close.svg" alt="close button" />
-          </button>
-        </div>
+          To view the eco-friendly index of the sunscreen, please click below to
+          check:) <br /> <br />
+          <a href="/check" class="alert-link">
+            Click Here
+          </a>
+        </h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
       </div>
-    )
+    </div>
   );
 }
 

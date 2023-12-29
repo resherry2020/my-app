@@ -18,10 +18,10 @@ app.get("/", (req, res) => {
 app.post("/products", async (req, res) => {
   console.log("Product created");
   try {
-    const { title, ing, link, brand, spf } = req.body;
+    const { title, link, brand, spf, isSafe, unsafe_ing } = req.body;
     const newProduct = await pool.query(
-      "INSERT INTO products (title,ing,link,brand,spf) VALUES($1,$2,$3,$4,$5) RETURNING *",
-      [title, ing, link, brand, spf]
+      "INSERT INTO products (title,link,brand,spf,is_safe,prohibited_ingredients) VALUES($1,$2,$3,$4,$5,$6) RETURNING *",
+      [title, link, brand, spf, isSafe, unsafe_ing]
     );
     res.json(newProduct.rows[0]);
     console.log(newProduct.rows[0]);
@@ -38,7 +38,6 @@ app.get("/products", async (req, res) => {
       "SELECT * FROM products WHERE status='approved'"
     );
     res.json(allProducts.rows);
-    console.log(allProducts.rows);
   } catch (error) {
     console.error(error.message);
   }
@@ -53,7 +52,6 @@ app.get("/products/:id", async (req, res) => {
       id,
     ]);
     res.json(product.rows[0]);
-    console.log(product.rows[0]);
   } catch (error) {
     console.error(error.message);
   }
@@ -64,10 +62,11 @@ app.put("/products/:id", async (req, res) => {
   console.log("update product");
   try {
     const { id } = req.params;
-    const { title, ing, link, brand, spf } = req.body;
+    const { title, link, brand, spf, is_safe, prohibited_ingredients } =
+      req.body;
     const updateProduct = await pool.query(
-      "UPDATE products SET title=$1,ing=$2,link=$3,brand=$4,spf=$5 WHERE id = $6",
-      [title, ing, link, brand, spf, id]
+      "UPDATE products SET title=$1,link=$2,brand=$3,spf=$4,is_safe=$5,prohibited_ingredients=$6 WHERE id = $7",
+      [title, link, brand, spf, is_safe, prohibited_ingredients, id]
     );
 
     console.log("product updated");
@@ -84,7 +83,6 @@ app.get("/ingredients", async (req, res) => {
       "SELECT * FROM ingredients WHERE status='approved'"
     );
     res.json(allIngredients.rows);
-    console.log(allIngredients.rows);
   } catch (error) {
     console.error(error.message);
   }

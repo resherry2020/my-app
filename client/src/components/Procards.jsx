@@ -29,10 +29,10 @@ function Procards() {
             <div class="card">
               <div
                 className={`card-header ${
-                  item.is_safe ? "bg-info" : "bg-danger"
+                  item.is_safe ? " text-bg-info" : "text-bg-danger"
                 }`}
               >
-                {item.is_safe ? " Safe " : "Unsafe"}
+                {item.is_safe ? " Safe " : "Danger"}
               </div>
               <img
                 src={item.link}

@@ -11,12 +11,6 @@ function Footer() {
           </a>
         </li>
         <li class="nav-item">
-          <a href="/products" class="nav-link px-2 text-body-secondary">
-            Products
-          </a>
-        </li>
-
-        <li class="nav-item">
           <a href="/about" class="nav-link px-2 text-body-secondary">
             About Us
           </a>
