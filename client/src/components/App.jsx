@@ -7,6 +7,9 @@ import Home from "./Home";
 import Products from "./Propage";
 import Check from "./Check";
 import Ingpage from "./IngPage";
+import Procards from "./Procards";
+import ProductDetail from "../pages/ProductDetail";
+import Recommend from "../pages/Recom";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/check" element={<Check />} />
           <Route path="/ingredients" element={<Ingpage />} />
+          <Route path="/" element={<Procards />} />
+          <Route path="/" element={<Recommend />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
       </Router>
 

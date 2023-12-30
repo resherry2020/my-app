@@ -122,9 +122,9 @@ function InputArea() {
       {formData.isTable | formData.isSafe && (
         <div class="mb-3 row justify-content-center">
           <form class="col-md-6 mt-5 " onSubmit={onSubmitForm}>
-            <label for="exampleFormControlInput1" class="form-label">
+            <h2 for="exampleFormControlInput1" class="form-label">
               Basic Product Info
-            </label>
+            </h2>
             <div class="input-group">
               <span class="input-group-text">Product</span>
               <input
@@ -144,23 +144,33 @@ function InputArea() {
                 onChange={handleInputChange}
               />
             </div>
-
-            <input
-              type="text"
-              class="form-control mt-2"
-              placeholder="SPF"
-              name="spf"
-              value={formData.spf}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              class="form-control mt-2"
-              placeholder="Product Img Link"
-              name="link"
-              value={formData.link}
-              onChange={handleInputChange}
-            />
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control mt-2"
+                placeholder="SPF"
+                id="floatingInput"
+                name="spf"
+                value={formData.spf}
+                onChange={handleInputChange}
+              />
+              <label for="floatingInput">SPF</label>
+              <div class="form-text" id="basic-addon4">
+                Please enter an integer value, ignore the "+" *_*!
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control mt-2"
+                placeholder="Product Img Link"
+                id="floatingInput"
+                name="link"
+                value={formData.link}
+                onChange={handleInputChange}
+              />
+              <label for="floatingInput">Product Img Link</label>
+            </div>
             <button
               type="submit"
               className="btn btn-success d-block mx-auto"

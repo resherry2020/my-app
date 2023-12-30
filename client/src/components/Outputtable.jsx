@@ -13,7 +13,7 @@ function Outputtable(props) {
         to view our ingredient analysis for more information
       </div>
       <div class="col ">
-        <table class="table table-warning table-striped-columns mt-5">
+        <table class="table table-warning table-striped mt-5">
           <thead>
             <tr>
               <th scope="col">Name</th>
