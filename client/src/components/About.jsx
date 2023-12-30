@@ -87,24 +87,38 @@ function About() {
           </div>
         </div>
       </section>
-      <section class="py-5">
+      <section class="py-5 d-flex align-items-center">
         <div class="container">
           <div class="row">
             <div class="col-md-5">
               <h2 class="display-5 fw-bold">Next Steps</h2>
             </div>
             <div class="col-md-6 offset-md-1">
-              <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod.
+              <p class="lead md-0 bold">
+                <strong>User Registration and Login:</strong>
               </p>
-              <p class="lead">
-                Ullamco laboris nisi ut a Lorem ipsum dolor sit amet,consectetur
-                adipiscing eli ncididunt ullamco laboris nisi ut a Lorem ipsum
-                dolor sit amet,consectetur adipiscing el.
+              <ul>
+                <li>Open user registration to encourage engagement.</li>
+                <li>Facilitate user login for personalized experiences.</li>
+                <li>
+                  Encourage users to contribute by uploading sunscreen
+                  ingredient information to expand our database.
+                </li>
+              </ul>
+
+              <p class="lead md-0 bold">
+                <strong>User Contribution Leaderboard:</strong>
               </p>
+              <ul>
+                <li>Establish a user contribution leaderboard.</li>
+                <li>
+                  Recognize and reward top contributors for their valuable
+                  input.
+                </li>
+                <li>
+                  Encourage healthy competition among users to boost engagement.
+                </li>
+              </ul>
             </div>
           </div>
         </div>

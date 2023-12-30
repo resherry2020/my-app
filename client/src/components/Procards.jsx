@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 
 function Procards() {
   const [list, setList] = useState([]);
-
+  const shuffleArray = (array) => {
+    // Use the Fisher-Yates algorithm for shuffling
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  };
   //get all items
   const getList = async () => {
     try {
@@ -23,6 +29,9 @@ function Procards() {
     getList();
   }, []);
 
+  shuffleArray(list);
+  const selectedItems = list.slice(0, 4);
+
   return (
     <div className="container">
       <div className=" px-4 py-5">
@@ -32,7 +41,7 @@ function Procards() {
           </a>
         </h2>
         <div class="row mt-5">
-          {list.slice(0, 4).map((item) => (
+          {selectedItems.map((item) => (
             <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
               <div class="bg-white rounded shadow-sm">
                 <img

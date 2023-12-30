@@ -2,7 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Recommend() {
-  const [safelist, setSafeList] = useState([]);
+  const [list, setSafeList] = useState([]);
+
+  const shuffleArray = (array) => {
+    // Use the Fisher-Yates algorithm for shuffling
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  };
+
   // In your React component
   useEffect(() => {
     const fetchData = async () => {
@@ -19,12 +28,15 @@ function Recommend() {
     fetchData();
   }, []);
 
+  shuffleArray(list);
+  const selectedItems = list.slice(0, 4);
+
   return (
-    <div>
+    <div className="mt-5">
       <h3 className="mt-5">Recommend Products</h3>
       <div className="container similar-products my-4 ">
         <div className="row">
-          {safelist.slice(0, 4).map((item) => (
+          {selectedItems.map((item) => (
             <div className="col-md-3" key={item.id}>
               <div className="similar-product">
                 <img className="w-100" src={item.link} alt={item.title} />

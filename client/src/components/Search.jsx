@@ -13,8 +13,10 @@ function Search(props) {
 
   function filterItems(items, searchText) {
     const searchTextLower = searchText.toLowerCase();
-    return items.filter((item) =>
-      item.title.toLowerCase().includes(searchTextLower)
+    return items.filter(
+      (item) =>
+        item.title.toLowerCase().includes(searchTextLower) |
+        item.brand.toLowerCase().includes(searchTextLower)
     );
   }
 

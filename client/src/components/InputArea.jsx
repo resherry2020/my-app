@@ -156,7 +156,7 @@ function InputArea() {
               />
               <label for="floatingInput">SPF</label>
               <div class="form-text" id="basic-addon4">
-                Please enter an integer value, ignore the "+" *_*!
+                Please enter an integer value, ignore the "+"
               </div>
             </div>
             <div class="form-floating mb-3">

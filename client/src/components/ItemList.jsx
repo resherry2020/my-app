@@ -1,4 +1,5 @@
 import React from "react";
+import Addalert from "./Addalert";
 
 function ItemList({ items, emptyHeading }) {
   const count = items ? items.length : 0;
@@ -43,6 +44,7 @@ function ItemList({ items, emptyHeading }) {
           </div>
         ))}
       </div>
+      {count > 1 ? <Addalert /> : <p>0</p>}
     </section>
   );
 }
