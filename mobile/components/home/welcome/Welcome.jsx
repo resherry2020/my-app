@@ -12,8 +12,11 @@ import { useRouter } from "expo-router";
 import styles from "./Welcome.style";
 import { icons, SIZES } from "../../../constants";
 
+const proTypes = ["Safe Sunscreen", "SPF 50+", "SPF 30+"];
+
 const Welcome = () => {
   const router = useRouter();
+  const [activeType, setactiveType] = useState("Safe Sunscreen");
 
   return (
     <View>
@@ -36,6 +39,25 @@ const Welcome = () => {
             style={styles.searchBtnImage}
           />
         </TouchableOpacity>
+      </View>
+      <View>
+        <FlatList
+          data={proTypes}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.tab(activeType, item)}
+              onPress={() => {
+                setactiveType(item);
+                router.push(`/search/${item}`);
+              }}
+            >
+              <Text style={styles.tabText(activeType, item)}>{item}</Text>
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item}
+          contentContainerStyle={{ columnGap: SIZES.small }}
+          horizontal
+        />
       </View>
     </View>
   );
