@@ -55,7 +55,7 @@ const Prolist = () => {
             renderItem={({ item }) => (
               <Procard
                 item={item}
-                selectedPro={selectedPro}
+                selected={selectedPro}
                 handleCardPress={handleCardPress}
               />
             )}

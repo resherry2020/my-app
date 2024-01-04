@@ -24,7 +24,7 @@ const Inglist = () => {
         ) : error ? (
           <Text>{error.message}</Text>
         ) : (
-          data?.map((ing) => <Ingcard ing={ing} key={ing.d} />)
+          data?.map((ing) => <Ingcard ing={ing} key={ing.id} />)
         )}
       </View>
     </View>
