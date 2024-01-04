@@ -31,7 +31,7 @@ const Prolist = () => {
   const [selectedPro, setSelectedPro] = useState();
 
   const handleCardPress = (item) => {
-    router.push(`/job-details/${item.id}`);
+    router.push(`/product/${item.id}`);
     setSelectedPro(item.id);
   };
 
