@@ -55,11 +55,11 @@ const Prolist = () => {
             renderItem={({ item }) => (
               <Procard
                 item={item}
-                selectedJob={selectedPro}
+                selectedPro={selectedPro}
                 handleCardPress={handleCardPress}
               />
             )}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id}
             contentContainerStyle={{ columnGap: SIZES.small }}
             horizontal
           />
