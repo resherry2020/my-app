@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
   infoContainer: {
     marginTop: SIZES.small / 2,
   },
-  jobName: (selectedPro, item) => ({
+  proName: (selectedPro, item) => ({
     fontSize: SIZES.large,
     fontFamily: FONT.medium,
-    color: selectedPro === item.job_id ? COLORS.white : COLORS.primary,
+    color: selectedPro === item.id ? COLORS.white : COLORS.primary,
   }),
   infoWrapper: {
     flexDirection: "row",
@@ -63,12 +63,13 @@ const styles = StyleSheet.create({
   publisher: (selectedPro) => ({
     fontSize: SIZES.medium,
     fontFamily: FONT.bold,
-    color: selectedPro === item.job_id ? COLORS.white : COLORS.primary,
+    color: selectedPro === item.id ? COLORS.white : COLORS.primary,
   }),
   spf: {
     fontSize: SIZES.medium - 2,
     fontFamily: FONT.regular,
     color: "#B3AEC6",
+    marginTop: 1,
   },
 });
 

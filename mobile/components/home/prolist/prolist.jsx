@@ -24,7 +24,7 @@ const Prolist = () => {
     }
   };
 
-  const { data, isLoading, error } = useFetch();
+  const { data, isLoading, error } = useFetch("products");
 
   shuffleArray(data);
   const selectedItems = data.slice(0, 6);
@@ -48,7 +48,7 @@ const Prolist = () => {
         {isLoading ? (
           <ActivityIndicator size="large" color={COLORS.yellow} />
         ) : error ? (
-          <Text>Something went wrong</Text>
+          <Text>{error.message}</Text>
         ) : (
           <FlatList
             data={selectedItems}

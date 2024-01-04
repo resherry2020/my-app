@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
-const useFetch = (endpoint, query) => {
+const useFetch = (endpoint) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -11,7 +10,7 @@ const useFetch = (endpoint, query) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3001/products", {
+      const response = await fetch(`http://localhost:3001/${endpoint}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

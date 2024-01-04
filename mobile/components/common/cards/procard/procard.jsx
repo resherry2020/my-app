@@ -23,7 +23,7 @@ const Procard = ({ item, selectedPro, handleCardPress }) => {
         {item.is_safe ? <Text style={styles.is_safe}>Safe</Text> : null}
       </View>
       <View style={styles.infoContainer}>
-        <Text style={styles.jobName(selectedPro, item)} numberOfLines={1}>
+        <Text style={styles.proName(selectedPro, item)} numberOfLines={1}>
           {item.title}
         </Text>
         <Text style={styles.spf}>SPF: {item.spf}</Text>
