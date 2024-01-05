@@ -13,16 +13,33 @@ import {
 
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetchDetails from "../../hook/useFetchDetails";
+import { ScreenHeaderBtn } from "../../components";
 
 function ProDetails() {
   const { id } = useGlobalSearchParams();
+  const router = useRouter();
+
   const { data, isLoading, error, refetch } = useFetchDetails("products", id);
 
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightBlue }}>
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightBlue },
+          headerShadowVisible: false,
+          headerBackVisible: false,
+          headerLeft: () => (
+            <ScreenHeaderBtn
+              iconUrl={icons.left}
+              dimension="60%"
+              handlePress={() => router.back()}
+            />
+          ),
+        }}
+      ></Stack.Screen>
       <Text>{data.title}</Text>
       {/* {data[0].is_safe ? null : <unsafeTable ing={data} />} */}
-    </View>
+    </SafeAreaView>
   );
 }
 
