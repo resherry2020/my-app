@@ -88,6 +88,22 @@ app.get("/ingredients", async (req, res) => {
   }
 });
 
+//get products' ingredients information
+app.get("/proing/:id", async (req, res) => {
+  console.log("get products ingredients information");
+  try {
+    const { id } = req.params;
+    const proing = await pool.query(
+      "SELECT products.*, ingredients.* FROM products JOIN ingredients ON ingredients.newname = ANY(products.prohibited_ingredients) WHERE products.id = $1;",
+      [id]
+    );
+
+    res.json(proing.rows);
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
