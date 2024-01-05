@@ -1,6 +1,6 @@
 import { Stack, useRouter, useGlobalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
-import ExampleTwo from "../../components/prodetails/ExampleTwo";
+import unsafeTable from "../../components/prodetails/unsafeTable";
 
 import {
   View,
@@ -21,8 +21,7 @@ function ProDetails() {
   return (
     <View>
       <Text>{data.title}</Text>
-
-      {/* {!data.is_safe && <ExampleTwo data={data.prohibited_ingredients} />} */}
+      {/* {data[0].is_safe ? null : <unsafeTable ing={data} />} */}
     </View>
   );
 }
