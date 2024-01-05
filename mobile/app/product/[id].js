@@ -1,5 +1,6 @@
 import { Stack, useRouter, useGlobalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
+import ExampleTwo from "../../components/prodetails/ExampleTwo";
 
 import {
   View,
@@ -16,7 +17,14 @@ import useFetchDetails from "../../hook/useFetchDetails";
 function ProDetails() {
   const { id } = useGlobalSearchParams();
   const { data, isLoading, error, refetch } = useFetchDetails("products", id);
-  return <Text>{data.title}</Text>;
+
+  return (
+    <View>
+      <Text>{data.title}</Text>
+
+      {/* {!data.is_safe && <ExampleTwo data={data.prohibited_ingredients} />} */}
+    </View>
+  );
 }
 
 export default ProDetails;
