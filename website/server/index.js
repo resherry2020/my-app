@@ -94,11 +94,12 @@ app.get("/proing/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const proing = await pool.query(
-      "SELECT products.*, ingredients.* FROM products JOIN ingredients ON ingredients.newname = ANY(products.prohibited_ingredients) WHERE products.id = $1;",
+      "SELECT products.*, ingredients.* FROM products LEFT JOIN ingredients ON ingredients.newname = ANY(products.prohibited_ingredients) WHERE products.id = $1;",
       [id]
     );
 
     res.json(proing.rows);
+    console.log(proing.rows);
   } catch (error) {
     console.error(error.message);
   }
