@@ -13,13 +13,16 @@ import {
 
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetchDetails from "../../hook/useFetchDetails";
-import { ScreenHeaderBtn } from "../../components";
+import { ScreenHeaderBtn, Output, Product, RecomPro } from "../../components";
 
 function ProDetails() {
   const { id } = useGlobalSearchParams();
   const router = useRouter();
 
   const { data, isLoading, error, refetch } = useFetchDetails("products", id);
+
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = () => {};
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightBlue }}>
@@ -40,7 +43,29 @@ function ProDetails() {
           ),
           headerTitle: "",
         }}
-      ></Stack.Screen>
+      />
+      <>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          {isLoading ? (
+            <ActivityIndicator size="large" color={COLORS.blue} />
+          ) : error ? (
+            <Text>{error.message}</Text>
+          ) : data.length === 0 ? (
+            <Text>No data</Text>
+          ) : (
+            <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
+              <Product />
+              <Output />
+              <RecomPro />
+            </View>
+          )}
+        </ScrollView>
+      </>
       <Text>{data.title}</Text>
       {/* {data[0].is_safe ? null : <unsafeTable ing={data} />} */}
     </SafeAreaView>
