@@ -35,6 +35,10 @@ function ProDetails() {
               handlePress={() => router.back()}
             />
           ),
+          headerRight: () => (
+            <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
+          ),
+          headerTitle: "",
         }}
       ></Stack.Screen>
       <Text>{data.title}</Text>
