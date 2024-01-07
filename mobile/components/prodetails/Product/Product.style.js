@@ -4,25 +4,47 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: SIZES.large,
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
   },
-  headerTitle: {
+  imgBox: {
+    width: 380,
+    height: 380,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    borderRadius: SIZES.large,
+  },
+  Img: {
+    width: "80%",
+    height: "80%",
+  },
+  proTitleBox: {
+    marginTop: SIZES.small,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+  },
+  proTitle: {
     fontSize: SIZES.large,
-    fontFamily: FONT.medium,
+    marginTop: SIZES.small - 5,
     color: COLORS.dackBlue,
+    fontFamily: FONT.bold,
+    justifyContent: "center",
+    textAlign: "center",
   },
-  headerBtn: {
+  proBrand: {
     fontSize: SIZES.medium,
+    color: COLORS.blue,
     fontFamily: FONT.medium,
-    color: COLORS.gray,
+    fontFamily: FONT.bold,
   },
-  cardsContainer: {
-    marginTop: SIZES.medium,
+  proSPF: {
+    fontSize: SIZES.medium,
+    color: COLORS.blue,
+    fontFamily: FONT.medium,
+    marginTop: SIZES.small - 5,
+    fontFamily: FONT.bold,
   },
 });
 

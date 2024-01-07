@@ -59,14 +59,18 @@ function ProDetails() {
             <Text>No data</Text>
           ) : (
             <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
-              <Product />
+              <Product
+                link={data.link}
+                title={data.title}
+                brand={data.brand}
+                spf={data.spf}
+              />
               <Output />
               <RecomPro />
             </View>
           )}
         </ScrollView>
       </>
-      <Text>{data.title}</Text>
       {/* {data[0].is_safe ? null : <unsafeTable ing={data} />} */}
     </SafeAreaView>
   );
