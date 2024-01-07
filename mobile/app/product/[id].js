@@ -24,6 +24,13 @@ function ProDetails() {
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = () => {};
 
+  // Assuming data.prohibited_ingredients is an array
+  let import_ing = Array.isArray(data.prohibited_ingredients)
+    ? data.prohibited_ingredients
+      ? data.prohibited_ingredients.map((item) => item.trim())
+      : []
+    : [];
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightBlue }}>
       <Stack.Screen
@@ -66,11 +73,17 @@ function ProDetails() {
                 spf={data.spf}
               />
               <Output />
+
+              {import_ing.length > 0
+                ? import_ing.map((item) => <Text key={item}>{item}</Text>)
+                : null}
+
               <RecomPro />
             </View>
           )}
         </ScrollView>
       </>
+      <></>
       {/* {data[0].is_safe ? null : <unsafeTable ing={data} />} */}
     </SafeAreaView>
   );
