@@ -17,8 +17,8 @@ const COLORS = {
 
 const FONT = {
   regular: "System",
-  medium: "System",
-  bold: "System",
+  medium: "normal",
+  bold: "bold",
 };
 
 const SIZES = {

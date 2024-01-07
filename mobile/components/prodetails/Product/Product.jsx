@@ -19,9 +19,11 @@ function Product({ link, title, brand, spf }) {
         />
       </View>
       <View style={styles.proTitleBox}>
-        <Text style={styles.proBrand}>{brand}</Text>
         <Text style={styles.proTitle}>{title}</Text>
+      </View>
 
+      <View style={styles.infoBox}>
+        <Text style={styles.proBrand}>{brand}</Text>
         <Text style={styles.proSPF}>SPF: {spf}</Text>
       </View>
     </View>

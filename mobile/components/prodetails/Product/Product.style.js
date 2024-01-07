@@ -4,7 +4,7 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
+    //justifyContent: "center",
     alignItems: "center",
   },
   imgBox: {
@@ -30,21 +30,24 @@ const styles = StyleSheet.create({
     marginTop: SIZES.small - 5,
     color: COLORS.dackBlue,
     fontFamily: FONT.bold,
-    justifyContent: "center",
-    textAlign: "center",
   },
+  infoBox: {
+    marginTop: SIZES.small / 2,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   proBrand: {
     fontSize: SIZES.medium,
-    color: COLORS.blue,
-    fontFamily: FONT.medium,
+    color: COLORS.gray,
     fontFamily: FONT.bold,
   },
   proSPF: {
     fontSize: SIZES.medium,
-    color: COLORS.blue,
-    fontFamily: FONT.medium,
-    marginTop: SIZES.small - 5,
+    color: COLORS.gray,
     fontFamily: FONT.bold,
+    marginLeft: 10,
   },
 });
 
