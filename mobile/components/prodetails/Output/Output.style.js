@@ -15,11 +15,22 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
   },
-  text: {
-    margin: 6,
+  danger: {
+    margin: 4,
     fontSize: SIZES.small,
     fontWeight: "bold",
-    textAlign: "center",
+    color: "red",
+  },
+  text: {
+    margin: 4,
+    fontSize: SIZES.small,
+  },
+  textcontainer: {
+    borderRadius: 4,
+    padding: 4,
+    backgroundColor: COLORS.yellow,
+    height: 80,
+    marginBottom: 10,
   },
 });
 
