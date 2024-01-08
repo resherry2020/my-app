@@ -14,6 +14,9 @@ import Product from "./prodetails/Product/Product";
 import RecomPro from "./prodetails/RecomPro/RecomPro";
 import Safeoutput from "./prodetails/Safeoutput/Safeoutput";
 
+//about screen
+import Check from "./common/check/Check";
+
 export {
   ScreenHeaderBtn,
   Welcome,
@@ -25,4 +28,5 @@ export {
   Product,
   RecomPro,
   Safeoutput,
+  Check,
 };

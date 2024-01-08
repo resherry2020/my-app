@@ -5,10 +5,9 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 const styles = StyleSheet.create({
   container: { flex: 1, marginTop: 10 },
   rowSection: {
-    height: 60,
     backgroundColor: COLORS.white,
   },
-  head: { height: 44, backgroundColor: COLORS.blue },
+  head: { height: 40, backgroundColor: COLORS.blue },
   headText: {
     fontSize: SIZES.large,
     fontWeight: "bold",
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 4,
     backgroundColor: COLORS.yellow,
-    height: 80,
+
     marginBottom: 10,
   },
 });

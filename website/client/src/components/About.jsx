@@ -24,24 +24,16 @@ function About() {
                   shown to harm our oceans:{" "}
                 </p>
                 <ul>
-                  <li>Oxybenzone</li>
-                  <li>Octinoxate</li>
-                  <li>Octocrylene</li>
                   <li>4-methylbenzylidene camphor</li>
+                  <li>Avobenzone</li>
+                  <li>Homosalate</li>
+                  <li>Octocrylene</li>
+                  <li>Octinoxate</li>
+                  <li>Oxybenzone</li>
                   <li>PABA</li>
                   <li>Parabens</li>
-                  <li>Homosalate</li>
                   <li>Triclosan</li>
-                  <li>Avobenzone</li>
                 </ul>
-                <p class="lead mb-0">
-                  It’s also worth adding that this doesn’t just apply to
-                  sunscreens - we should all take care to make sure any other
-                  personal care products we wear in the water are free of these
-                  ingredients. We stock a range of reef-safe sunscreens which
-                  offer excellent protection in and out of the water! Our
-                  favourite plastic-free packaged, reef-safe sunscreens are;
-                </p>
               </div>
             </div>
           </div>

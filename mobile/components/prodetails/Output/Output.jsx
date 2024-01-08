@@ -1,10 +1,10 @@
 import unsafelist from "./UnsafeList";
-import React from "react";
-import { View, ScrollView, Text, Card } from "react-native";
+import { View, ScrollView, Text } from "react-native";
 import { Table, Row } from "react-native-table-component";
 
 import styles from "./Output.style";
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS } from "../../../constants";
+import Check from "../../common/check/Check";
 
 function Output({ ing }) {
   const ingMap = {};
@@ -19,7 +19,7 @@ function Output({ ing }) {
 
   const data = {
     tableHead: ["Name", "Description", "Impact"],
-    widthArr: [100, 200, 250],
+    widthArr: ["20%", "35%", "45%"],
     tableData: ing_data,
   };
 
@@ -30,10 +30,9 @@ function Output({ ing }) {
         <Text style={styles.text}>
           This sunscreen may pose a threat to marine life. We strongly advise
           against using it while in the ocean.
-          <br />
-          Click here to view our ingredient analysis for more information.
         </Text>
       </View>
+      <Check />
       <ScrollView horizontal={true}>
         <View>
           <Table borderStyle={{ borderWidth: 1, borderColor: COLORS.dackBlue }}>

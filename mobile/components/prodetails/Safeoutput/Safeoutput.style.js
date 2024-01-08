@@ -4,21 +4,25 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
+    flex: 1,
+    marginTop: 10,
   },
-  textcontainer: {
-    borderRadius: 4,
+  reassurance: {
     margin: 4,
-    padding: 4,
-    backgroundColor: "#3366FF",
+    fontSize: SIZES.medium,
+    fontWeight: "bold",
+    color: COLORS.white,
   },
   text: {
     margin: 4,
+    fontSize: SIZES.small,
+    color: COLORS.white,
   },
-  card: {
-    marginTop: SIZES.medium,
+  textcontainer: {
+    borderRadius: 4,
+    padding: 4,
+    backgroundColor: COLORS.blue,
+    marginBottom: 10,
   },
 });
 
