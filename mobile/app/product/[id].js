@@ -1,6 +1,5 @@
 import { Stack, useRouter, useGlobalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
-import unsafeTable from "../../components/prodetails/unsafeTable";
 
 import {
   View,
@@ -13,7 +12,13 @@ import {
 
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetchDetails from "../../hook/useFetchDetails";
-import { ScreenHeaderBtn, Output, Product, RecomPro } from "../../components";
+import {
+  ScreenHeaderBtn,
+  Output,
+  Product,
+  Safeoutput,
+  RecomPro,
+} from "../../components";
 
 function ProDetails() {
   const { id } = useGlobalSearchParams();
@@ -72,11 +77,7 @@ function ProDetails() {
                 brand={data.brand}
                 spf={data.spf}
               />
-              <Output />
-
-              {import_ing.length > 0
-                ? import_ing.map((item) => <Text key={item}>{item}</Text>)
-                : null}
+              {data.is_safe ? <Safeoutput /> : <Output ing={import_ing} />}
 
               <RecomPro />
             </View>

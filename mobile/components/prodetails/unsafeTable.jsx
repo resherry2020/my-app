@@ -3,7 +3,7 @@ import { View, ScrollView } from "react-native";
 import { Table, Row } from "react-native-table-component";
 
 const TableThree = (props) => {
-  const tableData = [];
+  const ing_data = [];
   for (let i = 0; i < props.ing.length; i++) {
     tableData.push([
       props.ing[i].name,
@@ -14,7 +14,7 @@ const TableThree = (props) => {
   const data = {
     tableHead: ["Name", "Description", "Impact"],
     widthArr: [100, 180, 220],
-    tableData: [],
+    tableData: ing_data,
   };
 
   return (

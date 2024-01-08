@@ -12,6 +12,7 @@ import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 import Output from "./prodetails/Output/Output";
 import Product from "./prodetails/Product/Product";
 import RecomPro from "./prodetails/RecomPro/RecomPro";
+import Safeoutput from "./prodetails/Safeoutput/Safeoutput";
 
 export {
   ScreenHeaderBtn,
@@ -23,4 +24,5 @@ export {
   Output,
   Product,
   RecomPro,
+  Safeoutput,
 };
