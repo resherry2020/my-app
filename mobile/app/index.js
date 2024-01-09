@@ -1,11 +1,14 @@
 import { View, ScrollView, SafeAreaView } from "react-native";
 import { Stack, useRouter } from "expo-router";
+import { useState } from "react";
 
 import { COLORS, icons, images, SIZES } from "../constants";
 import { Inglist, Prolist, ScreenHeaderBtn, Welcome } from "../components";
+import { useSafeAreaFrame } from "react-native-safe-area-context";
 
 const Home = () => {
   const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightBlue }}>
@@ -25,7 +28,15 @@ const Home = () => {
 
       <ScrollView showVerticalScrollIndicator={false}>
         <View style={{ flex: 1, padding: SIZES.medium }}>
-          <Welcome />
+          <Welcome
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            handleClick={() => {
+              if (searchTerm) {
+                router.push(`/search/${searchTerm}`);
+              }
+            }}
+          />
           <Prolist />
           <Inglist />
         </View>

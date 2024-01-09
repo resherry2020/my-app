@@ -8,13 +8,14 @@ import {
   FlatList,
 } from "react-native";
 import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "./Welcome.style";
 import { icons, SIZES } from "../../../constants";
 
 const proTypes = ["Safe Sunscreen", "SPF 50+", "SPF 30+"];
 
-const Welcome = () => {
+const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
   const [activeType, setactiveType] = useState("Safe Sunscreen");
 
@@ -27,12 +28,12 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             styles={styles.searchInput}
-            value=""
-            onChange={() => {}}
+            value={searchTerm}
+            onChange={(text) => setSearchTerm(text)}
             placeholder="Which sunscreen you are looking for?"
           />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
           <Image
             source={icons.search}
             resizeMode="contain"
