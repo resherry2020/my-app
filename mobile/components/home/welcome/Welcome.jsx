@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -6,16 +6,17 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  SafeAreaView,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { useNavigation } from "@react-navigation/native";
 
 import styles from "./Welcome.style";
-import { icons, SIZES } from "../../../constants";
+import { COLORS, icons, SIZES } from "../../../constants";
+import useFetch from "../../../hook/useFetch";
 
 const proTypes = ["Safe Sunscreen", "SPF 50+", "SPF 30+"];
 
-const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
+const Welcome = () => {
   const router = useRouter();
   const [activeType, setactiveType] = useState("Safe Sunscreen");
 
@@ -24,16 +25,17 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
       <View style={styles.container}>
         <Text>Hello Sherry</Text>
       </View>
+
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
           <TextInput
             styles={styles.searchInput}
-            value={searchTerm}
-            onChange={(text) => setSearchTerm(text)}
+            value=""
+            onChange={() => {}}
             placeholder="Which sunscreen you are looking for?"
           />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
+        <TouchableOpacity style={styles.searchBtn}>
           <Image
             source={icons.search}
             resizeMode="contain"
@@ -47,10 +49,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.tab(activeType, item)}
-              onPress={() => {
-                setactiveType(item);
-                router.push(`/search/${item}`);
-              }}
+              onPress={() => {}}
             >
               <Text style={styles.tabText(activeType, item)}>{item}</Text>
             </TouchableOpacity>

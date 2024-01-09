@@ -18,7 +18,6 @@ function Home() {
       });
       const jsonDate = await response.json();
 
-      console.log("client:" + jsonDate);
       setProlist(jsonDate);
     } catch (error) {
       console.log(error.message);

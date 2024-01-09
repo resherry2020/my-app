@@ -35,11 +35,15 @@ const Prolist = () => {
     setSelectedPro(item.id);
   };
 
+  const handleShowAll = () => {
+    router.push("/all");
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}> Products</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleShowAll}>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>
       </View>
