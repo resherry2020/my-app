@@ -4,7 +4,7 @@ import { COLORS, SIZES, icons, FONT } from "../../constants";
 import { Button, StyleSheet, Text, Image, SafeAreaView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
-import { Check } from "./check";
+import Check from "./check";
 
 export default function Test() {
   // State to hold the selected image
@@ -18,8 +18,11 @@ export default function Test() {
 
   //show the check output
   const [isoutput, setOutput] = useState(false);
-  const showOutput = () => {
-    setOutput(true);
+
+  //ischeck
+  const [ischeck, setCheck] = useState(false);
+  const handleCheck = () => {
+    setCheck(true);
   };
 
   useEffect(() => {
@@ -79,13 +82,13 @@ export default function Test() {
       const uri = URL.createObjectURL(file);
       setImage(uri);
       performOCR(file);
-      setUploaded(true);
     }
   };
 
   // Function to perform OCR on an image
   // and extract text
   const performOCR = (file) => {
+    setOutput(true);
     let myHeaders = new Headers();
     myHeaders.append(
       "apikey",
@@ -123,7 +126,10 @@ export default function Test() {
             style={{ display: "none" }}
             onChange={handleFileChange}
           />
-          <Button title="Pick an image" onPress={pickImageWeb} />
+          <Button
+            title="Pick an image of the ingredients sheet"
+            onPress={pickImageWeb}
+          />
         </>
       );
     } else {
@@ -141,21 +147,41 @@ export default function Test() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>Welcome to GeeksforGeeks</Text>
-      <Text style={styles.heading2}>Image to Text App</Text>
-      {renderPickImageButton()}
-      {image && (
-        <Image
-          source={{ uri: image }}
-          style={{
-            width: 400,
-            height: 300,
-            objectFit: "contain",
-          }}
-        />
+      {!ischeck && (
+        <>
+          <Text style={styles.text1}>
+            If you're unable to locate the product, you can assess the
+            sunscreen's eco-friendly index by scanning the ingredients sheet
+            yourself.
+            <br />
+            Click below to verify 🙂
+          </Text>
+          {renderPickImageButton()}
+          {image && (
+            <Image
+              source={{ uri: image }}
+              style={{
+                width: 400,
+                height: 300,
+                objectFit: "contain",
+              }}
+            />
+          )}
+          {isoutput && (
+            <>
+              <Text style={styles.text1}>Extracted text:</Text>
+              <Text style={styles.text2}>{extractedText}</Text>
+              <Text style={styles.text1}>
+                If the text is correct, please click the 【CHECK】 button.{" "}
+                <br />
+                If there are any errors, please rescan!
+              </Text>
+              <Button title="Check" onPress={handleCheck} />
+            </>
+          )}
+        </>
       )}
-      <Text style={styles.text1}>Extracted text:</Text>
-      <Text style={styles.text1}>{extractedText}</Text>
+      {ischeck && <Check info={extractedText} />}
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -168,6 +194,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     margin: 15,
     backgroundColor: COLORS.yellow,
+    borderRadius: SIZES.small,
   },
   text1: {
     fontSize: 16,
@@ -177,9 +204,11 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontSize: 16,
-    margin: 15,
+    margin: 10,
     color: "black",
     fontWeight: "bold",
     backgroundColor: "#FFF",
+    padding: 15,
+    borderRadius: SIZES.small,
   },
 });

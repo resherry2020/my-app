@@ -122,7 +122,12 @@ function InputArea() {
       {formData.isTable | formData.isSafe && (
         <div class="mb-3 row justify-content-center">
           <form class="col-md-6 mt-5 " onSubmit={onSubmitForm}>
-            <h2 for="exampleFormControlInput1" class="form-label">
+            <h6>
+              Would you be willing to submit additional information for this
+              product to help us enhance the database and provide more
+              comprehensive search information?
+            </h6>
+            <h2 for="exampleFormControlInput1" class="form-label mt-5">
               Basic Product Info
             </h2>
             <div class="input-group">
