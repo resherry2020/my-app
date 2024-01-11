@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  ActivityIndicator,
-} from "react-native";
+import { View, Text, FlatList, ActivityIndicator } from "react-native";
 import { useRouter } from "expo-router";
 
 import styles from "./RecomPro.style";
@@ -13,6 +7,7 @@ import { COLORS, SIZES } from "../../../constants";
 import useFetch from "../../../hook/useFetch";
 
 import Procard from "../../common/cards/procard/procard";
+import Prolistcard from "../../common/cards/prolistcard /prolistcard";
 
 function RecomPro() {
   const router = useRouter();
@@ -51,7 +46,7 @@ function RecomPro() {
           <FlatList
             data={selectedItems}
             renderItem={({ item }) => (
-              <Procard
+              <Prolistcard
                 item={item}
                 selected={selectedPro}
                 handleCardPress={handleCardPress}
@@ -59,7 +54,6 @@ function RecomPro() {
             )}
             keyExtractor={(item) => item.id}
             contentContainerStyle={{ columnGap: SIZES.small }}
-            horizontal
           />
         )}
       </View>

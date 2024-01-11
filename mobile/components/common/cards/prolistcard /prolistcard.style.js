@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: COLORS.gray2,
+    backgroundColor: "#FFF",
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
     marginLeft: 15,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   info: {
     fontSize: SIZES.medium,
     fontFamily: "DMRegular",
-    color: COLORS.white,
+    color: COLORS.gray,
     marginTop: 5,
     textTransform: "capitalize",
     marginLeft: SIZES.large,

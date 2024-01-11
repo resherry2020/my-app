@@ -12,7 +12,6 @@ import { useRouter } from "expo-router";
 
 import styles from "./Welcome.style";
 import { COLORS, icons, SIZES } from "../../../constants";
-import useFetch from "../../../hook/useFetch";
 
 const proTypes = ["Safe Sunscreen", "SPF 50+", "SPF 30+"];
 
@@ -23,7 +22,7 @@ const Welcome = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Text>Hello Sherry</Text>
+        <Text>Hello</Text>
       </View>
 
       <View style={styles.searchContainer}>
@@ -43,6 +42,7 @@ const Welcome = () => {
           />
         </TouchableOpacity>
       </View>
+
       <View>
         <FlatList
           data={proTypes}
