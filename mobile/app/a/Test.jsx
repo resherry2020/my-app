@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useState, useEffect, useRef } from "react";
-import { COLORS, SIZES, icons, FONT } from "../../../constants";
+import { COLORS, SIZES, icons, FONT } from "../../constants";
 import { Button, StyleSheet, Text, Image, SafeAreaView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
@@ -157,16 +157,7 @@ export default function Test() {
             Click below to verify 🙂
           </Text>
           {renderPickImageButton()}
-          {image && (
-            <Image
-              source={{ uri: image }}
-              style={{
-                width: 400,
-                height: 300,
-                objectFit: "contain",
-              }}
-            />
-          )}
+          {image && <Image source={{ uri: image }} style={styles.img} />}
           {isoutput && (
             <>
               <Text style={styles.text1}>Extracted text:</Text>
@@ -210,5 +201,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     padding: 15,
     borderRadius: SIZES.small,
+  },
+  img: {
+    width: 400,
+    height: 300,
+    resizeMode: "contain",
+    alignSelf: "center",
+    justifyContent: "center",
   },
 });

@@ -36,7 +36,7 @@ const Prolist = () => {
   };
 
   const handleShowAll = () => {
-    router.push("/all");
+    router.push("/a");
   };
 
   return (

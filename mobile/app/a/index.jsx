@@ -14,11 +14,10 @@ import useFetch from "../../hook/useFetch";
 import Prolistcard from "../../components/common/cards/prolistcard /prolistcard";
 import { COLORS, SIZES, icons, FONT } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
-import Test from "./all-components/Test";
+import Test from "./Test";
 
 const AllProducts = () => {
   const router = useRouter();
-  const [activeType, setactiveType] = useState("Safe Sunscreen");
   const { data, isLoading, error } = useFetch("products");
   const [search, setSearch] = useState("");
   const [filteredDataSource, setFilteredDataSource] = useState([]);

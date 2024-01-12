@@ -44,7 +44,9 @@ function Output({ ing }) {
             />
           </Table>
           <ScrollView>
-            <Table borderStyle={{ borderWidth: 1, borderColor: "purple" }}>
+            <Table
+              borderStyle={{ borderWidth: 1, borderColor: COLORS.dackBlue }}
+            >
               {data.tableData.map((rowData, rowIndex) => (
                 <Row
                   key={rowIndex}

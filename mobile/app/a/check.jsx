@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Text, StyleSheet } from "react-native";
-import { Safeoutput, Output } from "../../../components";
+import { Safeoutput, Output } from "../../components";
+import { COLORS, SIZES } from "../../constants";
 
 export default function Check({ info }) {
   const info_lower = info.toLowerCase();
