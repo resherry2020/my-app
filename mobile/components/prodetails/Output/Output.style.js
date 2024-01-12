@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   head: { height: 40, backgroundColor: COLORS.blue },
   headText: {
-    fontSize: SIZES.large,
+    fontSize: SIZES.medium,
     fontWeight: "bold",
     textAlign: "center",
     color: "white",

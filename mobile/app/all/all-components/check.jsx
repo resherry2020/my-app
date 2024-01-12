@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Text } from "react-native";
-import { Safeoutput, Output } from "../../components";
+import { Text, StyleSheet } from "react-native";
+import { Safeoutput, Output } from "../../../components";
 
 export default function Check({ info }) {
   const info_lower = info.toLowerCase();
@@ -59,7 +59,7 @@ export default function Check({ info }) {
       {formData.isTable && (
         <>
           <Output ing={formData.unsafe_ing} />
-          <Text>
+          <Text style={styles.text}>
             Would you be willing to submit additional information for this
             product to help us enhance the database and provide more
             comprehensive search information?
@@ -69,3 +69,32 @@ export default function Check({ info }) {
     </>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    margin: 15,
+    backgroundColor: COLORS.yellow,
+    borderRadius: SIZES.small,
+  },
+  text: {
+    margin: 4,
+    fontSize: SIZES.small,
+  },
+  text1: {
+    fontSize: 16,
+    margin: 15,
+    color: "black",
+    fontWeight: "bold",
+  },
+  text2: {
+    fontSize: 16,
+    margin: 10,
+    color: "black",
+    fontWeight: "bold",
+    backgroundColor: "#FFF",
+    padding: 15,
+    borderRadius: SIZES.small,
+  },
+});

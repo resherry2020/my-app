@@ -14,7 +14,7 @@ import useFetch from "../../hook/useFetch";
 import Prolistcard from "../../components/common/cards/prolistcard /prolistcard";
 import { COLORS, SIZES, icons, FONT } from "../../constants";
 import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
-import Test from "./Test";
+import Test from "./all-components/Test";
 
 const AllProducts = () => {
   const router = useRouter();

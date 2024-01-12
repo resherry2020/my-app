@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useState, useEffect, useRef } from "react";
-import { COLORS, SIZES, icons, FONT } from "../../constants";
+import { COLORS, SIZES, icons, FONT } from "../../../constants";
 import { Button, StyleSheet, Text, Image, SafeAreaView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";

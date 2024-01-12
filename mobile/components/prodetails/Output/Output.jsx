@@ -19,7 +19,7 @@ function Output({ ing }) {
 
   const data = {
     tableHead: ["Name", "Description", "Impact"],
-    widthArr: ["20%", "35%", "45%"],
+    widthArr: [100, 120, 170],
     tableData: ing_data,
   };
 
