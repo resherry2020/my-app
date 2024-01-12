@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View, TextInput, Button } from "react-native";
 import { Safeoutput, Output } from "../../components";
 import { COLORS, SIZES } from "../../constants";
 
@@ -14,6 +14,7 @@ export default function Check({ info }) {
     spf: "",
     brand: "",
   });
+
   useEffect(() => {
     // Function to check unsafe ingredients
     const checkUnsafeIngredients = () => {
@@ -54,6 +55,44 @@ export default function Check({ info }) {
     // Call the function to check unsafe ingredients
     checkUnsafeIngredients();
   }, [info]);
+
+  const handleInputChange = (name, value) => {
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const handleSubmit = async () => {
+    console.log("onSubmitForm");
+
+    try {
+      const response = await fetch("http://localhost:3001/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log("Product created successfully");
+        alert(
+          "Thank you for your participation! Product added successfully. After awaiting administrator approval, your submitted product will be displayed on the webpage."
+        );
+
+        // You might want to navigate to another screen or update the UI
+        // based on the success of the form submission.
+        // The exact approach would depend on your navigation setup (React Navigation, etc.).
+      } else {
+        console.error("Failed to create product");
+        // Handle the error or provide feedback to the user.
+      }
+    } catch (error) {
+      console.error(error.message);
+      // Handle the error or provide feedback to the user.
+    }
+  };
+
   return (
     <>
       {formData.isSafe && <Safeoutput />}
@@ -65,6 +104,30 @@ export default function Check({ info }) {
             product to help us enhance the database and provide more
             comprehensive search information?
           </Text>
+          <View>
+            <TextInput
+              placeholder="Brand"
+              name="brand"
+              style={styles.input}
+              onChangeText={(text) => handleInputChange("brand", text)}
+              value={formData.brand}
+            />
+            <TextInput
+              placeholder="Title"
+              name="title"
+              style={styles.input}
+              onChangeText={(text) => handleInputChange("title", text)}
+              value={formData.title}
+            />
+            <TextInput
+              placeholder="SPF"
+              name="spf"
+              style={styles.input}
+              onChangeText={(text) => handleInputChange("spf", text)}
+              value={formData.spf}
+            />
+            <Button title="Submit" onPress={handleSubmit} />
+          </View>
         </>
       )}
     </>
@@ -83,11 +146,10 @@ const styles = StyleSheet.create({
     margin: 4,
     fontSize: SIZES.small,
   },
-  text1: {
-    fontSize: 16,
-    margin: 15,
-    color: "black",
-    fontWeight: "bold",
+  input: {
+    height: 40,
+    borderColor: COLORS.blue,
+    borderWidth: 1,
   },
   text2: {
     fontSize: 16,
