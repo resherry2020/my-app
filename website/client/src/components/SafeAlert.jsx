@@ -3,13 +3,13 @@ import React from "react";
 function Safealert() {
   return (
     <div class="alert alert-info mt-5" role="alert">
-      Reassurance: Based on our current research findings, this sunscreen has
-      been determined to be safe for marine life.
+      <strong>Reassurance: </strong> Based on our current research findings,
+      this sunscreen has been determined to be safe for marine life.
       <br />
+      Click to view our ingredient analysis{" "}
       <a href="/about#princeples" class="alert-link">
-        [ Click Here ]
+        <strong> Princeples </strong>
       </a>
-      to view our ingredient analysis for more information
     </div>
   );
 }

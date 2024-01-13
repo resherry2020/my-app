@@ -4,13 +4,13 @@ function Outputtable(props) {
   return (
     <div class="row justify-content-center mt-5">
       <div class="alert alert-danger" role="alert">
-        Caution: This sunscreen may pose a threat to marine life. We strongly
-        advise against using it while in the ocean.
+        <strong> Caution: </strong>This sunscreen may pose a threat to marine
+        life. We strongly advise against using it while in the ocean.
         <br />
+        Click to view our ingredient analysis{" "}
         <a href="/about#princeples" class="alert-link">
-          [ Click here ]
+          <strong> Princeples </strong>
         </a>
-        to view our ingredient analysis for more information
       </div>
       <div class="col ">
         <table class="table table-warning table-striped mt-5">
