@@ -7,7 +7,7 @@ function Outputtable(props) {
         <strong> Caution: </strong>This sunscreen may pose a threat to marine
         life. We strongly advise against using it while in the ocean.
         <br />
-        Click to view our ingredient analysis{" "}
+        Click to view our ingredient analysis
         <a href="/about#princeples" class="alert-link">
           <strong> Princeples </strong>
         </a>
