@@ -6,7 +6,7 @@ function Safealert() {
       Reassurance: Based on our current research findings, this sunscreen has
       been determined to be safe for marine life.
       <br />
-      <a href="/about" class="alert-link">
+      <a href="/about#princeples" class="alert-link">
         [ Click Here ]
       </a>
       to view our ingredient analysis for more information

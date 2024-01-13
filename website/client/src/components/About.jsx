@@ -8,7 +8,9 @@ function About() {
           <div class="row justify-content-center">
             <div class="col-md-12">
               <div class=" ">
-                <h2 class="display-5 fw-bold text-center">Our Principles</h2>
+                <h2 id="princeples" class="display-5 fw-bold text-center">
+                  Our Principles
+                </h2>
                 <p class="lead">
                   It is estimated that around 14,000 tonnes of sunscreen
                   chemicals are washed off swimmers and end up in our oceans

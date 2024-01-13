@@ -7,7 +7,7 @@ function Outputtable(props) {
         Caution: This sunscreen may pose a threat to marine life. We strongly
         advise against using it while in the ocean.
         <br />
-        <a href="/about" class="alert-link">
+        <a href="/about#princeples" class="alert-link">
           [ Click here ]
         </a>
         to view our ingredient analysis for more information
